@@ -1,7 +1,7 @@
 package com.api.atm_machine.repository;
 
-import com.api.atm_machine.entity.Client;
+import com.api.atm_machine.entity.ClientEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClientRepo extends JpaRepository<Client, Long> {
+public interface ClientRepo extends JpaRepository<ClientEntity, Long> {
 }

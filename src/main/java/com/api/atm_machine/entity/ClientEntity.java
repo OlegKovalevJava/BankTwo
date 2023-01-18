@@ -1,14 +1,18 @@
 package com.api.atm_machine.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "clients")
-public class Client {
+public class ClientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,5 +20,6 @@ public class Client {
 
     @Column(name = "BALANCE")
     private BigDecimal balance;
+
 
 }
