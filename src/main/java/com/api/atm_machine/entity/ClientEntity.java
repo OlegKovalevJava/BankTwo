@@ -13,13 +13,11 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "clients")
 public class ClientEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "BALANCE")
     private BigDecimal balance;
-
 
 }

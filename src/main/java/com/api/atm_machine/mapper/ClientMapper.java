@@ -18,4 +18,5 @@ public class ClientMapper {
                 .balance(clientDto.getBalance())
                 .build();
     }
+
 }

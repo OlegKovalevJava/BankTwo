@@ -1,6 +1,5 @@
 package com.api.atm_machine.controllers;
 
-
 import com.api.atm_machine.dto.ClientDto;
 import com.api.atm_machine.entity.ClientEntity;
 import com.api.atm_machine.mapper.ClientMapper;
@@ -28,6 +27,13 @@ public class ClientController {
                 .stream()
                 .map(ClientMapper::toDto)
                 .toList();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ClientDto getClient(@PathVariable Long id) {
+        return ClientMapper.toDto(clientRepo.findById(id).orElse(new ClientEntity()));
     }
 
     @PostMapping
