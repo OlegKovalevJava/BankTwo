@@ -19,5 +19,7 @@ public class ClientDto {
     @JsonIgnore
     private Long id;
 
+    private String clientName;
+
     private BigDecimal balance;
 }

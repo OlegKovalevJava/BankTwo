@@ -19,10 +19,6 @@ public class ClientController {
         this.clientRepo = clientRepo;
     }
 
-
-
-
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

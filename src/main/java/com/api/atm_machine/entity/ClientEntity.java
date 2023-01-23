@@ -17,6 +17,9 @@ public class ClientEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "CLIENT_NAME")
+    private String clientName;
+
     @Column(name = "BALANCE")
     private BigDecimal balance;
 
