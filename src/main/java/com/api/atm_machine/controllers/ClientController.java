@@ -19,6 +19,10 @@ public class ClientController {
         this.clientRepo = clientRepo;
     }
 
+
+
+
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -43,6 +47,23 @@ public class ClientController {
         ClientEntity clientEntity = ClientMapper.toEntity(clientDto);
         ClientEntity savedClient = clientRepo.save(clientEntity);
         return ClientMapper.toDto(savedClient);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseBody
+    public ClientDto updateClient(@PathVariable Long id, @RequestBody ClientDto clientDto) {
+        clientDto.setId(id);
+        ClientEntity clientEntity = ClientMapper.toEntity(clientDto);
+        ClientEntity updatedClient = clientRepo.save(clientEntity);
+        return ClientMapper.toDto(updatedClient);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseBody
+    public void deleteClient(@PathVariable Long id) {
+        clientRepo.deleteById(id);
     }
 
 }
