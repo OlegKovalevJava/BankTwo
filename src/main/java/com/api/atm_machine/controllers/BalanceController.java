@@ -1,27 +1,24 @@
 package com.api.atm_machine.controllers;
 
-import com.api.atm_machine.mapper.ClientMapper;
-import com.api.atm_machine.repository.ClientRepo;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import com.api.atm_machine.service.ClientService;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("balance")
+@AllArgsConstructor
 public class BalanceController {
 
-    private final ClientRepo clientRepo;
+    private final ClientService clientService;
 
-    public BalanceController(ClientRepo clientRepo) {
-        this.clientRepo = clientRepo;
-    }
-
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public BigDecimal getClient(@PathVariable Long id) {
-        return ClientMapper.toDtoBalance(clientRepo.findById(id).get());
+    @GetMapping("{id}")
+    public BigDecimal getBalance(@PathVariable Long id) {
+        return clientService.getBalance(id);
     }
 
 }
