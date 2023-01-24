@@ -1,5 +1,6 @@
 package com.api.atm_machine.controllers;
 
+import com.api.atm_machine.mapper.ClientMapper;
 import com.api.atm_machine.repository.ClientRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class BalanceController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public BigDecimal getBalance(@PathVariable Long id) {
-        BigDecimal balance = clientRepo.findById(id).get().getBalance();
-        return balance;
+    public BigDecimal getClient(@PathVariable Long id) {
+        return ClientMapper.toDtoBalance(clientRepo.findById(id).get());
     }
+
 }

@@ -22,4 +22,5 @@ public class ClientDto {
     private String clientName;
 
     private BigDecimal balance;
+
 }
