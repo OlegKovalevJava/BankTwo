@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class BalanceController {
 
+
     private final ClientService clientService;
 
     @GetMapping("{id}")

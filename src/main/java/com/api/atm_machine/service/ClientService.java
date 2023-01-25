@@ -14,9 +14,6 @@ public class ClientService {
 
     public BigDecimal getBalance(Long id) {
         BigDecimal balance = clientRepo.findById(id).get().getBalance();
-        if (balance == null) {
-            throw new IllegalArgumentException();
-        }
         return balance;
     }
 
