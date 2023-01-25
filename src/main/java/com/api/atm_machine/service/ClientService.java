@@ -13,7 +13,11 @@ public class ClientService {
     private final ClientRepo clientRepo;
 
     public BigDecimal getBalance(Long id) {
-        return clientRepo.findById(id).get().getBalance();
+        BigDecimal balance = clientRepo.findById(id).get().getBalance();
+        if (balance == null) {
+            throw new IllegalArgumentException();
+        }
+        return balance;
     }
 
 }
